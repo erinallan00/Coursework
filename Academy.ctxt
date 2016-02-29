@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Academy()
+comment1.params=
+comment1.target=void\ processOrders()
+comment2.params=
+comment2.target=void\ setUpOrderList()
+comment3.params=
+comment3.target=void\ calculateMethodOfSales()
+comment4.params=
+comment4.target=void\ countMoneyRaised()
+comment5.params=
+comment5.target=void\ generateFunction()
+comment6.params=
+comment6.target=void\ saveFriNightSales()
+numComments=7
