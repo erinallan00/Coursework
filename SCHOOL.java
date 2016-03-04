@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 import java.io.*;
 public class SCHOOL
 {
-    private SCHOOL orderList[];
+    private ORDER orderList[];
     int noOfOrders;
     FILEREADCSV orderFile;
 
@@ -12,7 +12,7 @@ public class SCHOOL
 
     }
     // top level algorithm
-    public void processOrders()throws IOException
+    public void processOrders() throws IOException
     {
         setUpOrderList();
         calculateMethodOfSales();
@@ -21,13 +21,14 @@ public class SCHOOL
         saveFriNightSales();
     }
 
-    public void setUpOrderList()throws IOException
+    public void setUpOrderList() throws IOException
     {
         System.out.println("");
         System.out.println("");
         String[] dataRows = orderFile.readCSVtable();
         noOfOrders = dataRows.length;
         System.out.println("** " + noOfOrders + " rows read.\n\n");
+        orderList = new ORDER[noOfOrders];
     }
 
     public void calculateMethodOfSales()

@@ -1,11 +1,11 @@
-public class ORDERS
+public class ORDER
 {
     private String customerID;
     private String ticketID;
     private int NoOfTickets;
     private String MethodOfPurchase;
    
-    public ORDERS()
+    public ORDER()
     {
         customerID = "";
         ticketID = "";
