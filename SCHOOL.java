@@ -1,12 +1,12 @@
 import javax.swing.JOptionPane;
 import java.io.*;
-public class Academy
+public class SCHOOL
 {
-    private Academy OrderList[];
+    private SCHOOL orderList[];
     int noOfOrders;
     FILEREADCSV orderFile;
 
-    public Academy()
+    public SCHOOL()
     {
         orderFile = new FILEREADCSV();
 
@@ -26,8 +26,8 @@ public class Academy
         System.out.println("");
         System.out.println("");
         String[] dataRows = orderFile.readCSVtable();
-        
-
+        noOfOrders = dataRows.length;
+        System.out.println("** " + noOfOrders + " rows read.\n\n");
     }
 
     public void calculateMethodOfSales()
