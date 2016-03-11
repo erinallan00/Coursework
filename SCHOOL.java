@@ -2,13 +2,13 @@ import javax.swing.JOptionPane;
 import java.io.*;
 public class SCHOOL
 {
-    private ORDER orderList[];
+    private ORDER OrderList[];
     int noOfOrders;
-    FILEREADCSV orderFile;
+    FILEREADCSV OrderFile;
 
     public SCHOOL()
     {
-        orderFile = new FILEREADCSV();
+        OrderFile = new FILEREADCSV();
 
     }
     // top level algorithm
@@ -25,31 +25,35 @@ public class SCHOOL
     {
         System.out.println("");
         System.out.println("");
-        String[] dataRows = orderFile.readCSVtable();
+        String[] dataRows = OrderFile.readCSVtable();
         noOfOrders = dataRows.length;
         System.out.println("** " + noOfOrders + " rows read.\n\n");
-        orderList = new ORDER[noOfOrders];
+        OrderList = new ORDER[noOfOrders];
+
+        for  (int i = 0; i < noOfOrders; i++) {
+            OrderList[i] = new ORDER()    ;  
+            OrderList[i].readOrderDetails(dataRows[i]);
+        }
     }
 
     public void calculateMethodOfSales()
     {
-        
+
     }
-    
+
     public void countMoneyRaised()
     {
-        
+
     }
-    
+
     public void generateFunction()
     {
-        
+
     }
-    
+
     public void saveFriNightSales()
     {
-        
+
     }
-    
 
 }
