@@ -5,11 +5,11 @@ public class SCHOOL
     private ORDER OrderList[];
     int noOfOrders;
     FILEREADCSV OrderFile;
-
+    FILEWRITECSV resultFile;
     public SCHOOL()
     {
         OrderFile = new FILEREADCSV();
-
+        resultFile = new FILEWRITECSV();
     }
     // top level algorithm
     public void processOrders() throws IOException
@@ -38,6 +38,7 @@ public class SCHOOL
 
     public void calculateMethodOfSales()
     {
+        String fileContent = "";
         int SchoolSales = 0;
         int OnlineSales = 0;
         for (int i = 0; i < noOfOrders; i++)
@@ -50,11 +51,30 @@ public class SCHOOL
             //count all S values then take away from 300 to find O values.
             //use an if statement to decide which is most popular method of sales.
             // if CountSchoolSales is greater than CountOnlineSales then CountSchoolSales is the most popular, if CountOnlineSales is greater than CountSchoolSales then CountOnlineSales is most popular.
-            OnlineSales = NoOfOrders - SchoolSales;
-            if ((
-            System.out.println("\n The most popular method of sales is : " + );
+
+        }
+        OnlineSales = noOfOrders - SchoolSales;
+        if (OnlineSales < SchoolSales)
+        {
+            System.out.println("\n The most popular method of sales is : " + "School sales.");
         }
 
+        else if (OnlineSales > SchoolSales)
+        {
+            System.out.println("\n The most popular method of sales is : " + "Online sales.");
+        }
+        else 
+        {
+            System.out.println("\n The most popular method of sales is : " + "neither school sales or online sales.");
+        }
+
+        if (count>1)
+        {
+            fileContent = fileContent.concat("\n");
+        }
+
+        fileContent = fileContent.concat(memberList[i].writeDetails());
+        resultFile.writeCSVtable(fileContent);
     }
 
     public void countMoneyRaised()
