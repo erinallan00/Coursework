@@ -38,7 +38,6 @@ public class SCHOOL
 
     public void calculateMethodOfSales()
     {
-        String fileContent = "";
         int SchoolSales = 0;
         int OnlineSales = 0;
         for (int i = 0; i < noOfOrders; i++)
@@ -68,18 +67,16 @@ public class SCHOOL
             System.out.println("\n The most popular method of sales is : " + "neither school sales or online sales.");
         }
 
-        if (count>1)
-        {
-            fileContent = fileContent.concat("\n");
-        }
-
-        fileContent = fileContent.concat(memberList[i].writeDetails());
-        resultFile.writeCSVtable(fileContent);
     }
 
     public void countMoneyRaised()
     {
-
+        int MoneyRaised = 0;
+        for (int i = 0; i < noOfOrders; i++)
+        {
+            MoneyRaised = MoneyRaised + OrderList[i].getNoOfTickets() * 5;
+        }
+        System.out.print("\n The total money raised is :  " + MoneyRaised);
     }
 
     public void generateFunction()
