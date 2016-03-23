@@ -53,11 +53,12 @@ public class SCHOOL
 
         }
         OnlineSales = noOfOrders - SchoolSales;
+        System.out.println(OnlineSales);
+        System.out.println(SchoolSales);
         if (OnlineSales < SchoolSales)
         {
             System.out.println("\n The most popular method of sales is : " + "School sales.");
         }
-
         else if (OnlineSales > SchoolSales)
         {
             System.out.println("\n The most popular method of sales is : " + "Online sales.");
@@ -74,9 +75,16 @@ public class SCHOOL
         int MoneyRaised = 0;
         for (int i = 0; i < noOfOrders; i++)
         {
-            MoneyRaised = MoneyRaised + OrderList[i].getNoOfTickets() * 5;
+            if((OrderList[i].getticketID().equals("F1"))||(OrderList[i].getticketID().equals("F2"))|| (OrderList[i].getticketID().equals("F3")))
+            {
+                MoneyRaised = MoneyRaised + OrderList[i].getNoOfTickets() * 10;
+            }
+            else
+            {
+                MoneyRaised = MoneyRaised + OrderList[i].getNoOfTickets() * 5;
+            }
         }
-        System.out.print("\n The total money raised is :  " + MoneyRaised);
+        System.out.print("\n The total money raised for charity is :  " + MoneyRaised);
     }
 
     public void generateFunction()
