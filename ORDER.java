@@ -20,7 +20,7 @@ public class ORDER
         customerID = rowItems[0];
         ticketID = rowItems[1];
         NoOfTickets = Integer.parseInt(rowItems[2]);
-        MethodOfPurchase = (rowItems[3]);
+        MethodOfPurchase = (rowItems[3]).substring(0, 1);
     }
 
     public String writeDetails()

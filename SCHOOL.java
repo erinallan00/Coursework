@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 import java.io.*;
+import java.time.*;
 public class SCHOOL
 {
     private ORDER OrderList[];
@@ -15,9 +16,9 @@ public class SCHOOL
     public void processOrders() throws IOException
     {
         setUpOrderList();
+        generateFunction();
         calculateMethodOfSales();
         countMoneyRaised();
-        generateFunction();
         saveFriNightSales();
     }
 
@@ -53,8 +54,8 @@ public class SCHOOL
 
         }
         OnlineSales = noOfOrders - SchoolSales;
-        System.out.println(OnlineSales);
-        System.out.println(SchoolSales);
+        //System.out.println(OnlineSales);
+        //System.out.println(SchoolSales);
         if (OnlineSales < SchoolSales)
         {
             System.out.println("\n The most popular method of sales is : " + "School sales.");
@@ -84,12 +85,14 @@ public class SCHOOL
                 MoneyRaised = MoneyRaised + OrderList[i].getNoOfTickets() * 5;
             }
         }
-        System.out.print("\n The total money raised for charity is :  " + MoneyRaised);
+        System.out.print("\n The total money raised for charity is  :  £" + MoneyRaised);
     }
 
     public void generateFunction()
     {
-
+        System.out.println("");
+        System.out.print("Essell Academy Choral Shield ");
+        System.out.println(Year.now().getValue() + "\n");
     }
 
     public void saveFriNightSales() throws IOException
@@ -108,7 +111,7 @@ public class SCHOOL
                 fileContent = fileContent.concat(OrderList[i].writeDetails());
             }
         }
-        
+        System.out.println("");
         System.out.println("** Preparing to write new FriNightSales file.");
         resultFile.writeCSVtable(fileContent);
         System.out.println("** File written and closed.");
