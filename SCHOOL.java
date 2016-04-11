@@ -6,7 +6,7 @@ public class SCHOOL
     int noOfOrders;
     FILEREADCSV OrderFile;
     FILEWRITECSV resultFile;
-    public SCHOOL()
+    public SCHOOL() throws IOException
     {
         OrderFile = new FILEREADCSV();
         resultFile = new FILEWRITECSV();
@@ -92,9 +92,26 @@ public class SCHOOL
 
     }
 
-    public void saveFriNightSales()
+    public void saveFriNightSales() throws IOException
     {
-
+        String fileContent = "";
+        int count = 0;
+        for (int i = 0; i < noOfOrders; i++) 
+        {
+            if((OrderList[i].getticketID().equals("F1"))||(OrderList[i].getticketID().equals("F2"))|| (OrderList[i].getticketID().equals("F3")))
+            {
+                count = count + 1;
+                if (count>1) 
+                {
+                    fileContent = fileContent.concat("\n");
+                }
+                fileContent = fileContent.concat(OrderList[i].writeDetails());
+            }
+        }
+        
+        System.out.println("** Preparing to write new FriNightSales file.");
+        resultFile.writeCSVtable(fileContent);
+        System.out.println("** File written and closed.");
     }
 
 }
